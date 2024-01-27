@@ -87,19 +87,20 @@ class SubDomainScanner:
 
     def run_scan(self):
         domain_list = self.get_domain_names()
-        print(f"{G} \u2514\u27A4 {C}Total Subdomains Found:{W} {len(domain_list)}")
+        # print(f"{G} \u2514\u27A4 {C}Total Subdomains Found:{W} {len(domain_list)}")
         for subdomain in domain_list:
             real_ip = self.get_real_ip(subdomain)
             subdomain_data = {"Subdomain": subdomain, "Real IP": real_ip, "SSL Info": None}
             if real_ip:
-                print(f"{Fore.YELLOW}[+] {Fore.CYAN}Real IP Address of {Fore.GREEN}{subdomain}:{Fore.RED} {real_ip}")
+                # print(f"{Fore.YELLOW}[+] {Fore.CYAN}Real IP Address of {Fore.GREEN}{subdomain}:{Fore.RED} {real_ip}")
 
                 # Perform SSL Certificate Analysis
                 ssl_info = self.get_ssl_certificate_info(subdomain)
                 if ssl_info:
-                    print(f"{Fore.RED}   [+] {Fore.CYAN}SSL Certificate Information:")
+                    # print(f"{Fore.RED}   [+] {Fore.CYAN}SSL Certificate Information:")
                     for key, value in ssl_info.items():
-                        print(f"{Fore.RED}      \u2514\u27A4 {Fore.CYAN}{key}:{W} {value}")
+                        pass
+                        # print(f"{Fore.RED}      \u2514\u27A4 {Fore.CYAN}{key}:{W} {value}")
 
                     subdomain_data["SSL Info"] = ssl_info
 

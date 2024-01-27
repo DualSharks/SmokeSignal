@@ -16,10 +16,10 @@ class HeaderScanner:
 
     def detect_cloudflare(self, headers):
         if "server" in headers and "cloudflare" in headers["server"].lower():
-            print("Cloudflare detected!")
+            # print("Cloudflare detected!")
             return CloudflareStatus.DETECTED
         if "cf-ray" in headers or "cloudflare" in headers:
-            print("Cloudflare detected!")
+            # print("Cloudflare detected!")
             return CloudflareStatus.DETECTED
 
     def detect_webservers(self, headers):

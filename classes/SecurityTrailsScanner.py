@@ -13,10 +13,10 @@ class SecurityTrailsScanner:
         first_seen = record["first_seen"]
         last_seen = record["last_seen"]
         organizations = record["organizations"][0]
-        print(f"\n{R} [+] {C}IP Address: {R}{ip}{W}")
-        print(f"{Y}  \u2514\u27A4 {C}First Seen: {G}{first_seen}{W}")
-        print(f"{Y}  \u2514\u27A4 {C}Last Seen: {G}{last_seen}{W}")
-        print(f"{Y}  \u2514\u27A4 {C}Organizations: {G}{organizations}{W}")
+        # print(f"\n{R} [+] {C}IP Address: {R}{ip}{W}")
+        # print(f"{Y}  \u2514\u27A4 {C}First Seen: {G}{first_seen}{W}")
+        # print(f"{Y}  \u2514\u27A4 {C}Last Seen: {G}{last_seen}{W}")
+        # print(f"{Y}  \u2514\u27A4 {C}Organizations: {G}{organizations}{W}")
 
         return {
             "IP Address": ip,
@@ -36,7 +36,7 @@ class SecurityTrailsScanner:
             try:
                 response = requests.get(url, headers=headers)
                 data = response.json()
-                print(f"\n{Fore.GREEN}[+] {Fore.YELLOW}Historical IP Address Info from {C}SecurityTrails{Y} for {Fore.GREEN}{self.domain}:{W}")
+                # print(f"\n{Fore.GREEN}[+] {Fore.YELLOW}Historical IP Address Info from {C}SecurityTrails{Y} for {Fore.GREEN}{self.domain}:{W}")
                 for record in data['records']:
                     record_data = self.security_trails_record_parser(record)
                     self.data.append(record_data)

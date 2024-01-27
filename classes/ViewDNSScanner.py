@@ -32,10 +32,10 @@ class ViewDNSScanner:
         location = columns[1].text.strip()
         owner = columns[2].text.strip()
         last_seen = columns[3].text.strip()
-        print(f"\n{R} [+] {C}IP Address: {R}{ip_address}{W}")
-        print(f"{Y}  \u2514\u27A4 {C}Location: {G}{location}{W}")
-        print(f"{Y}  \u2514\u27A4 {C}Owner: {G}{owner}{W}")
-        print(f"{Y}  \u2514\u27A4 {C}Last Seen: {G}{last_seen}{W}")
+        # print(f"\n{R} [+] {C}IP Address: {R}{ip_address}{W}")
+        # print(f"{Y}  \u2514\u27A4 {C}Location: {G}{location}{W}")
+        # print(f"{Y}  \u2514\u27A4 {C}Owner: {G}{owner}{W}")
+        # print(f"{Y}  \u2514\u27A4 {C}Last Seen: {G}{last_seen}{W}")
 
         self.data.append({
             'IP Address': ip_address,
@@ -55,14 +55,14 @@ class ViewDNSScanner:
             headers = VIEWDNS_HEADERS
             url = f"{VIEWDNS_URL}?domain={self.domain}"
 
-            print('headers', headers)
-            print('url', url)
+            # print('headers', headers)
+            # print('url', url)
 
             soup = self.get_html_soup(url, headers)
             table = soup.find('table', {'border': '1'})
             if table:
                 rows = table.find_all('tr')[2:]
-                print(f"\n{Fore.GREEN}[+] {Fore.YELLOW}Historical IP Address Info from {C}Viewdns{Y} for {Fore.GREEN}{self.domain}:{W}")
+                # print(f"\n{Fore.GREEN}[+] {Fore.YELLOW}Historical IP Address Info from {C}Viewdns{Y} for {Fore.GREEN}{self.domain}:{W}")
                 for row in rows:
                     self.ip_address_row_parser(row)
             else:
